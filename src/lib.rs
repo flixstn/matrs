@@ -1,4 +1,5 @@
 mod matrix;
+mod math;
 
 #[cfg(test)]
 mod tests {

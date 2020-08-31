@@ -3,21 +3,21 @@ use std::ops::Add;
 use std::ops::Sub;
 
 #[derive(Debug)]
-struct Matrix {
-    dim: (usize, usize),    // (row, col)||(width, height)
-    data: Vec<f32>
+pub struct Matrix {
+    pub dim: (usize, usize),    // (row, col)||(width, height)
+    pub data: Vec<f32>
 }
 
 // (4,3) -> let mut vector = vec![vec![0.; dim.1]; dim.0]; (4 rows, 3, cols)
 impl Matrix {
-    fn new(data: &Vec<Vec<f32>>) -> Self {
+    pub fn new(data: &Vec<Vec<f32>>) -> Self {
         Self {
             dim: (data.len(), data[0].len()),
             data: data.iter().cloned().flatten().collect::<Vec<f32>>(),
         }
     }
 
-    fn with_zeros(shape: (usize, usize)) -> Self {
+    pub fn with_zeros(shape: (usize, usize)) -> Self {
         Self {
             dim: shape,
             data: vec![0.; shape.0 * shape.1],
